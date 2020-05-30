@@ -15,13 +15,11 @@ const release = async () => {
         "new",
         releaseVersion
     ]);
-    console.log(`The release "${releaseVersion}" was sended to Sentry.`);
+    console.log(`The release "${releaseVersion}" was sent to Sentry.`);
 
     await sentry.execute([
         "releases",
-        "set-commits",
-        "--auto",
-        releaseVersion
+        "propose-version",
     ]);
 
     if(deployEnvironment) {
